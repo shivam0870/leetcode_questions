@@ -1,0 +1,27 @@
+1.Brute force approach 
+Maintain two pointers i and j and max=0 where i will iterate from 0 and j from i+1 and traverse the array 
+If arr[j] > arr[i] then store it in max .. this could be one possible answer but we need to traverse the whole array
+
+
+int max=0;
+        int ans =0;
+        for(int i=0; i<arr.length; i++){
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[j]>arr[i]){
+                        max = arr[j] - arr[i];
+                        ans = Math.max(ans , max);
+                }
+            }
+        }
+        System.out.println(ans);
+
+2. Optimised approach 
+Linearly traverse the array and if we are at a given index i then keep tracking the minimum value in left side
+
+int min = Integer.MAX_VALUE; //stores the max possible integer which is 2147483647
+        int maxprofit = 0 ;
+        for(int i=0; i<arr.length; i++){
+            min = Math.min(min, arr[i]);
+            maxprofit = Math.max(maxprofit , arr[i] - min);
+        }
+        System.out.println(maxprofit);

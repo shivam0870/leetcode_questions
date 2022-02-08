@@ -1,0 +1,28 @@
+1st approach create a new array to store the answer and find sum till  i th position and store the given sum in new array starting from first index
+int ans[]= new int[n];
+        int sum =0;
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        for(int i=0; i<n; i++){
+            sum=sum+arr[i];
+            ans[i] = sum;
+        }
+        for(int item: ans){
+            System.out.print(item+" ");
+        }
+
+2. Use Arraylist to get dynamic sized array and use above approach.
+int arr[] = new int[n];
+  for(int i=0; i<n; i++) {
+   arr[i] = sc.nextInt();
+  }
+            ArrayList<Integer> list = new ArrayList<>();
+            int sum=0;
+            for(int j=0; j<n;j++){
+                sum+=arr[j];
+                list.add(sum);
+            }
+            for(int j=0;j<list.size();j++){
+                System.out.println(list.get(j));
+            }

@@ -1,0 +1,42 @@
+Brute force approach -- create new array and check if element is zero then push back it to end and if it's not zero then store at the first index then second respectively.
+int n = sc.nextInt();
+        int arr[] = new int[n];
+        int ans[] = new int[n];
+        int x=0;
+        System.out.println("Enter the elememts of array");
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+
+        }
+        for(int i=0; i<n; i++){
+            if(arr[i] == 0){
+                ans[n-1] = arr[i];
+            }
+            else {
+                ans[x] = arr[i];
+                x++;
+            }
+        }
+        for(int item: ans){
+            System.out.println(item+ " ");
+        }
+
+2nd approach --> 
+Do not create any other array to store elements infact modify the same array by updating the position of 0's and non-zero elements 
+
+public void moveZeroes(int[] nums) {
+    int i = 0;
+    int j = 0;
+ 
+    while (j < nums.length) {
+        if (nums[j] != 0) {
+            nums[i++] = nums[j];
+        }
+ 
+        j++;
+    }
+ 
+    while (i < nums.length) {
+        nums[i++] = 0;
+    }
+}

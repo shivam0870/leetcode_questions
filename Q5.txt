@@ -1,0 +1,16 @@
+Q5. Approach--> 
+Take int ans =0 to store max profit
+Since we need to find max profit so start loop from i=1 and if arr[i]>arr[i-1] then store in any answer variable but since we need to traverse the array till last index so keep checking for the above condition.
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int ans = 0;
+        int n=prices.length;
+        for (int i = 1; i < n; i++) {
+            if (prices[i] > prices[i - 1])
+                ans += prices[i] - prices[i - 1];
+            
+    }
+        return ans;
+}
+}

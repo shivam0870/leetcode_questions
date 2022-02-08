@@ -1,0 +1,23 @@
+Brute force approach
+Merge the 2nd array into the first and sort them using inbuilt function or any sorting technique
+static void merge(int[] a , int m , int[] b , int n)
+    {
+        for(int i = 0 ; i < n ; i++)
+            a[i + m] = b[i];
+        Arrays.sort(a);
+    }
+
+Optimised approach 
+Take three pointers i j and k (i to store last index of nums1 j for last index of nums2 and k for size of array that we need to print and fill the array nums1 by comparing the elements form both the arrays and simultaneously decrement i j and k .
+public void merge(int A[], int m, int B[], int n) {
+  int i = m - 1;
+  int j = n - 1;
+  int k = m + n - 1;
+ 
+  while (k >= 0) {
+    if (j < 0 || (i >= 0 && A[i] > B[j]))
+      A[k--] = A[i--];
+    else
+      A[k--] = B[j--];
+  }
+}

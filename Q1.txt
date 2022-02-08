@@ -1,0 +1,29 @@
+1. Brute force approach
+Run two loops for 1st and 2nd index for every integer and if at any point sum == target return indices Time complexity - O(n^2)
+static int[] targetSum(int []a , int target)
+    {
+        for(int i = 0 ; i < a.length - 1 ; i++)
+            for(int j = i + 1 ; j < a.length ; j++)
+            {
+
+                if(a[i] + a[j] == target)
+                    return new int[]{i + 1 , j + 1};
+            }
+        return new int[]{-1 , -1};
+
+2.The given array is sorted so maintain two index left and right  then compare sum of these values if it is greater than target sum right-- else left++ 
+Time complexity - O(n)
+static int[] targetSum(int []a , int target)
+    {
+        int left = 0 , right = a.length - 1 , tempSum;
+        while(left < right)
+        {
+            tempSum = a[left] + a[right];
+            if(tempSum == target)
+                return new int[]{left + 1 , right + 1};
+            if(tempSum > target)
+                right--;
+            else
+                left++;
+        }
+        return new int[]{-1 , -1};
